@@ -9,8 +9,6 @@ function breadCrumb() {
     // array existing protocols
     var $beginPath = [ 'http://', 'https://'];
 
-    DOMAINAME = 'http://127.0.0.1:3000';
-
     // loop breadcrumb
     for (var i = 0; i < $beginPath.length; i++) {
         if ( $location.startsWith($beginPath[i]) ) {
@@ -21,6 +19,9 @@ function breadCrumb() {
 
             // = http://domain
             BASEPATH = $beginPath[i] + $basePath + '/';
+
+            // GET BASEPATH (for your demo, you'll probably use an other way for your Application)
+            getBasePath();
 
             // = foo/foo2/foo3 ...
             $routingArray = $path.split('/');
@@ -65,4 +66,15 @@ function breadCrumb() {
 
 function styleLink($link) {
     $link.addClass('pasted-item');
+}
+
+function getBasePath() {
+    $('.path_url a:first-child').attr('href', BASEPATH);
+    $('.nav li').each(function() {
+        var $href = $(this).find('a').attr('href');
+
+        // check your url
+        // console.log(BASEPATH + $href);
+        var t = $(this).find('a').attr('href', BASEPATH + $href);
+    })
 }
