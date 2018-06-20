@@ -1,4 +1,4 @@
-# Alexandre Buleté - easy-breadcrumb
+# easy breadcrumb - Alexandre Buleté
 
 An easy breadcrumb with jQuery in Open-Source. Contains project files and demo files.
 
@@ -6,18 +6,20 @@ An easy breadcrumb with jQuery in Open-Source. Contains project files and demo f
 
 Project folder contains : <br>
 <ul>
-	<li>easy-breadcrumb.js</li>
-	<li>easy-breadcrumb.scss</li>
-	<li>easy-breadcrumb.css</li>
+	<li>breadcrumb.js</li>
+	<li>breadcrumb.scss</li>
+	<li>breadcrumb.css</li>
+	<li>index.html <em>( for basics to put after your navbar or where you want! :) )</em></li>
 </ul>
 
 
 
 Demo folder contains : <br>
 <ul>
-	<li>demo.js</li>
-	<li>demo.scss</li>
-	<li>demo.css</li>
+	<li>breadcrumb.js</li>
+	<li>breadcrumb.scss</li>
+	<li>breadcrumb.css</li>
+	<li><em>few index.html inside folders for show a deeper breadcrumb</em></li>
 </ul>
 
 <hr>
