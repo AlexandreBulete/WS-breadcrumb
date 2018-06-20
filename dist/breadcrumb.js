@@ -1,15 +1,15 @@
 jQuery(document).ready(function() {
-
     breadCrumb();
-
 });
 
 function breadCrumb() {
     // get current location
     var $location = $(location).attr('href');
 
-    // array begin url existing
-    var $beginPath = [ 'http://', 'https://', 'http://www.', 'https://www.' ];
+    // array existing protocols
+    var $beginPath = [ 'http://', 'https://'];
+
+    DOMAINAME = 'http://127.0.0.1:3000';
 
     // loop breadcrumb
     for (var i = 0; i < $beginPath.length; i++) {
@@ -22,7 +22,7 @@ function breadCrumb() {
             // = http://domain
             BASEPATH = $beginPath[i] + $basePath + '/';
 
-            // = foo/foo2/foo3
+            // = foo/foo2/foo3 ...
             $routingArray = $path.split('/');
 
             // Loop each slug
@@ -41,7 +41,7 @@ function breadCrumb() {
                     var $urlNext = $url;
 
                     // if not location
-                    if ( $location != $url ) {
+                    if ( $location != $url && $location != $url + '/') {
                         $('.path_url').append(" > <a class='route"+i+"'>"+ $routingArray[i] +"</a>");
                         var $link = $('.route'+i).attr('href', $url);
                         // just for style ;)
@@ -49,14 +49,16 @@ function breadCrumb() {
                     }
 
                     // if $location
-                    if ( $location == $url ) {
-                        $('.path_url').append(" > <span class=''>"+ $routingArray[i] +"</span>");
+                    if ( $location == $url || $location == $url + '/') {
+                        var $last = $('.path_url span');
+
+                        // Verify if is the last (for the last '/' in your url ;) )
+                        if ( $last.length < 1 ) {
+                            $('.path_url').append(" > <span class='current-location'>"+ $routingArray[i] +"</span>");
+                        }
                     }
-
                 }
-
             }
-
         }
     }
 }
