@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+}
+ul {
+    list-style: none;
+}
+
+/* //////////////////////////////////////////// */
+
+.breadcrumb a {
+    text-decoration: none;
+}
+.breadcrumb .pasted-item {
+  color: grey;
+  transition: all 0.5s ease;
+}
+.breadcrumb .pasted-item:hover {
+  color: black;
+}
+.breadcrumb .current-location {
+  color: black;
+}
+.breadcrumb {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15%;
+    border-bottom: 1px solid lightgrey;
+    font-size: 10px;
+}
