@@ -2,6 +2,8 @@
 
 An easy breadcrumb with jQuery in Open-Source. Contains project files and demo files.
 
+![Screenshot](screenshot.jpg)
+
 <hr>
 
 Project folder contains : <br>
