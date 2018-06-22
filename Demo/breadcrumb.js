@@ -1,20 +1,18 @@
 jQuery(document).ready(function() {
-
     breadCrumb();
-
 });
 
 function breadCrumb() {
     // get current location
-    var $location = $(location).attr('href');
+    PATH = $(location).attr('href');
 
     // array existing protocols
     var $beginPath = [ 'http://', 'https://'];
 
     // loop breadcrumb
     for (var i = 0; i < $beginPath.length; i++) {
-        if ( $location.startsWith($beginPath[i]) ) {
-            $path = $location.replace($beginPath[i], '');
+        if ( PATH.startsWith($beginPath[i]) ) {
+            $path = PATH.replace($beginPath[i], '');
 
             // = http://
             var $basePath = $path.substr(0, $path.indexOf('/') );
@@ -24,6 +22,9 @@ function breadCrumb() {
 
             // GET BASEPATH (for your demo, you'll probably use an other way for your Application)
             getBasePath();
+
+            // get correct url for the navbar ;)
+            getNavbarLinks();
 
             // = foo/foo2/foo3 ...
             $routingArray = $path.split('/');
@@ -44,15 +45,15 @@ function breadCrumb() {
                     var $urlNext = $url;
 
                     // if not location
-                    if ( $location != $url && $location != $url + '/') {
+                    if ( PATH != $url && PATH != $url + '/') {
                         $('.path_url').append(" > <a class='route"+i+"'>"+ $routingArray[i] +"</a>");
                         var $link = $('.route'+i).attr('href', $url);
                         // just for style ;)
                         styleLink($link);
                     }
 
-                    // if $location
-                    if ( $location == $url || $location == $url + '/') {
+                    // if PATH
+                    if ( PATH == $url || PATH == $url + '/') {
                         var $last = $('.path_url span');
 
                         // Verify if is the last (for the last '/' in your url ;) )
@@ -77,6 +78,18 @@ function getBasePath() {
 
         // check your url
         // console.log(BASEPATH + $href);
-        var t = $(this).find('a').attr('href', BASEPATH + $href);
+        $(this).find('a').attr('href', BASEPATH + $href);
     })
+}
+
+function getNavbarLinks() {
+    var $previous = null;
+    $('.nav li a').each(function(index, value) {
+        var $page = $(this).data('page');
+        $(this).attr('href', PATH + $page);
+        if ($previous != null) {
+            $(this).attr('href', $previous + '/' + $page);
+        }
+        $previous = $(this).attr('href');
+    });
 }
