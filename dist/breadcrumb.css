@@ -9,20 +9,20 @@ ul {
 
 /* //////////////////////////////////////////// */
 
-.breadcrumb a {
+#breadcrumb a {
     text-decoration: none;
 }
-.breadcrumb .pasted-item {
+#breadcrumb .past-item {
   color: grey;
   transition: all 0.5s ease;
 }
-.breadcrumb .pasted-item:hover {
+#breadcrumb .past-item:hover {
   color: black;
 }
-.breadcrumb .current-location {
+#breadcrumb .current-location {
   color: black;
 }
-.breadcrumb {
+#breadcrumb {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 10px 15%;

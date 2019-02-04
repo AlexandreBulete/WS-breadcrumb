@@ -7,20 +7,20 @@ ul {
     list-style: none;
 }
 
-.breadcrumb a {
+#WS-breadcrumb a {
     text-decoration: none;
 }
-.breadcrumb .pasted-item {
+#WS-breadcrumb .past-item {
   color: grey;
   transition: all 0.5s ease;
 }
-.breadcrumb .pasted-item:hover {
+#WS-breadcrumb .past-item:hover {
   color: black;
 }
-.breadcrumb .current-location {
+#WS-breadcrumb .current-location {
   color: black;
 }
-.breadcrumb {
+#WS-breadcrumb {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 10px 15%;

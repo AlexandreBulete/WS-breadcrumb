@@ -1,6 +1,6 @@
-# easy breadcrumb - Alexandre Buleté
+# WS-breadcrumb - Pure Javascript - Alexandre Buleté
 
-An easy breadcrumb with jQuery in Open-Source. Contains project files and demo files.
+An easy breadcrumb with Pure Javascript. Contains project files and demo files.
 
 ![Screenshot](screenshot.jpg)
 

@@ -9,7 +9,7 @@ body {
 
 /* //////////////////////////////////////////// */
 
-.breadcrumb {
+#breadcrumb {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 10px 15%;
@@ -17,7 +17,7 @@ body {
     font-size: 10px;
     a {
         text-decoration: none;
-        &.pasted-item {
+        &.past-item {
             color: grey;
             transition: all 0.5s ease;
             &:hover {

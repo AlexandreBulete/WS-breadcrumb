@@ -3,24 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Easy-BreadCrumb - Demo | Alexandre Buleté</title>
-        <script
-			  src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
         <link rel="stylesheet" href="breadcrumb.css">
-        <script src="breadcrumb.js" defer></script>
     </head>
     <body>
-        <div class="breadcrumb">
+        <div id="WS-breadcrumb">
             <p class="path_url">
-                <a href="#" class="pasted-item">Accueil</a>
+                <a href="/" class="past-item">Accueil</a>
             </p>
         </div>
 
         <ul class="nav">
-            <li><p>Use this links for navigate for deeper :</p></li>
-            <li><a href="#" data-page="firstpage">First Page</a></li>
-            <li><a href="#" data-page="secondpage">Second Page</a></li>
+            <li><p>Use this links for navigate deeper :</p></li>
+            <li><a href="#" data-slug="firstpage">First Page</a></li>
+            <li><a href="#" data-slug="secondpage">Second Page</a></li>
         </ul>
+    <script src="breadcrumb.js"></script>
     </body>
 </html>
