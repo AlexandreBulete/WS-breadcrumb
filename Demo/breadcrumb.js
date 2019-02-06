@@ -26,10 +26,10 @@ function WS_BreadCrumb() {
             getNavbarLinks(PATH);
 
             // = foo/foo2/foo3 ...
-            routes = domain.split('/');
+            let routes = domain.split('/');
 
             // remove querystring
-            if ( routes[routes.length-1].startsWith('?') || routes[routes.length-1].startsWith('#') || routes[routes.length-1].startsWith('') ) {
+            if ( routes[routes.length-1].startsWith('?') || routes[routes.length-1].startsWith('#') || routes[routes.length-1] === '' ) {
                 routes.splice(routes.length-1);
             }
 
@@ -42,14 +42,14 @@ function WS_BreadCrumb() {
                     }
 
                     if ( i > 1 ) {
-                        url = urlNext + '/' + routes[i];
+                        var url = urlNext + '/' + routes[i];
                     }
 
                     // for next loop
                     var urlNext = url;
 
                     // if not location
-                    if ( PATH != url && PATH != url + '/' && i < routes.length-1) {
+                    if ( PATH != url && PATH != url + '/' && i <= routes.length-1 ) {
                         newLink = document.createElement('a');
                         newLink.setAttribute('class', 'route'+i);
                         newLink.innerHTML = routes[i];
