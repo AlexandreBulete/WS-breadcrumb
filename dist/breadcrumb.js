@@ -11,10 +11,15 @@ function WS_BreadCrumb() {
     // loop breadcrumb
     for (var i = 0; i < protocol.length; i++) {
         if ( PATH.startsWith(protocol[i]) ) {
-            let domain = PATH.replace(protocol[i], '');
+            // href without protocol
+            let href = PATH.replace(protocol[i], '');
+            
+            // remove querystirng
+            if ( href.includes('?') ) { href = href.substr(0, href.indexOf('?')); }
+            if ( href.includes('#') ) { href = href.substr(0, href.indexOf('#')); }
 
-            // = http://
-            let basePath = domain.substr(0, domain.indexOf('/') );
+            // = domain
+            let basePath = href.substr(0, href.indexOf('/') );
 
             // = http://domain
             BASEPATH = protocol[i] + basePath + '/';
@@ -26,9 +31,9 @@ function WS_BreadCrumb() {
             getNavbarLinks(PATH);
 
             // = foo/foo2/foo3 ...
-            let routes = domain.split('/');
+            let routes = href.split('/');
 
-            // remove querystring
+            // remove last / splice and eventual querystring
             if ( routes[routes.length-1].startsWith('?') || routes[routes.length-1].startsWith('#') || routes[routes.length-1] === '' ) {
                 routes.splice(routes.length-1);
             }
@@ -49,7 +54,7 @@ function WS_BreadCrumb() {
                     var urlNext = url;
 
                     // if not location
-                    if ( PATH != url && PATH != url + '/' && i <= routes.length-1 ) {
+                    if ( PATH != url && PATH != url + '/' && i < routes.length-1 ) {
                         newLink = document.createElement('a');
                         newLink.setAttribute('class', 'route'+i);
                         newLink.innerHTML = routes[i];
